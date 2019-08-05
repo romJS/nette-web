@@ -1,0 +1,58 @@
+{block content}
+   <!-- ordinacni hodiny -->
+    <section id="ordinacni-hodiny" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="schedule-tab">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="mt-boxy-color"></div>
+                        <div class="time-info">
+                            <h3>ORDINAČNÍ HODINY</h3>
+                            <table>
+                                <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>NEMOCNÍ</td>
+                                    <td>PRO ZVANÉ</td>
+                                    <td>PREVENCE A OČKOVÁNÍ</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                 {foreach $data as $key => $item}
+                                    <tr>
+                                        <td>{$days[$key]}</td>
+                                        <td>{$item['ill']}</td>
+                                        <td>{$item['for_invited']}</td>
+                                        <td>{$item['prevention_and_vaccination']}</td>
+                                    </tr>
+                                 {/foreach}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ordinacni hodiny -->
+
+    <!-- články-->
+    {foreach $articles as $article}
+        {var $id = $article->url}
+        <section n:attr="id => $id" class="section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="head-title lg-line">{$article->title}</h2>
+                        <hr class="botm-line"><br>
+                    </div>
+                    <div class="col-md-12">
+                        {$article->content|noescape}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    {/foreach}
+    <!--/ články -->
+{/block}

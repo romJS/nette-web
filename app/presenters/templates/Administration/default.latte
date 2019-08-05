@@ -1,0 +1,31 @@
+{block title}Administrace{/block}
+{block content}
+    <p>Vítejte v administraci! Jste přihlášeni jako <b>{$username}</b>.</p>
+    <h3>Seznam článků</h3>
+    <table class="table table-hover">
+        <tr class="info">
+            <th>Titulek</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr n:foreach="$articles as $article">
+            <td>{$article->title}</td>
+            {if $user->isInRole('admin')}
+                <td><a n:href="edit $article->url">Editovat</a></td>
+                <td><a class="delete" n:href="remove $article->url">Odstranit</a></td>
+            {/if}
+
+        </tr>
+    </table>
+{/block}
+
+{block scripts}
+    <script type="text/javascript">
+        let arrOfClasses = document.querySelectorAll(".delete");
+        for(let item of arrOfClasses) {
+            item.onclick = function() {
+                return confirm("Opravdu chcete článek smazat?");
+            };
+        };
+    </script>
+{/block}

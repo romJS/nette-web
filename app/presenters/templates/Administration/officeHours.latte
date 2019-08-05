@@ -1,0 +1,66 @@
+{block title}Ordinační hodiny{/block}
+{block content}
+    {form hoursForm}
+    <table>
+        <thead>
+        <tr>
+            <td></td>
+            <td>NEMOCNÍ</td>
+            <td>PRO ZVANÉ</td>
+            <td>PREVENCE A OČKOVÁNÍ</td>
+        </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    {formContainer Monday}
+                        {input hours_id}
+                        <td>Pondělí</td>
+                        <td>{input ill}</td>
+                        <td>{input for_invited}</td>
+                        <td>{input prevention_and_vaccination}</td>
+                    {/formContainer}
+                </tr>
+                <tr>
+                    {formContainer Tuesday}
+                        {input hours_id}
+                        <td>Úterý</td>
+                        <td>{input ill}</td>
+                        <td>{input for_invited}</td>
+                        <td>{input prevention_and_vaccination}</td>
+                    {/formContainer}
+                </tr>
+                <tr>
+                    {formContainer Wednesday}
+                        {input hours_id}
+                        <td>Středa</td>
+                        <td>{input ill}</td>
+                        <td>{input for_invited}</td>
+                        <td>{input prevention_and_vaccination}</td>
+                    {/formContainer}
+                </tr>
+                <tr>
+                    {formContainer Thursday}
+                        {input hours_id}
+                        <td>Čtvrtek</td>
+                        <td>{input ill}</td>
+                        <td>{input for_invited}</td>
+                        <td>{input prevention_and_vaccination}</td>
+                    {/formContainer}
+                </tr>
+                <tr>
+                    {formContainer Friday}
+                        {input hours_id}
+                        <td>Pátek</td>
+                        <td>{input ill}</td>
+                        <td>{input for_invited}</td>
+                        <td>{input prevention_and_vaccination}</td>
+                    {/formContainer}
+                </tr>
+
+
+        </tbody>
+    </table>
+        <br>
+        <p>{input save}</p>
+    {/form}
+{/block}

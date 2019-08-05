@@ -1,0 +1,19 @@
+{block title}Správa uživatelů{/block}
+{block content}
+    <h3>Správa uživatelů</h3>
+    <table class="table table-hover">
+        <tr class="info">
+            <th>Uživatel</th>
+            <th>Oprávnění</th>
+            <th>Editace</th>
+        </tr>
+    {foreach $users as $userDb}
+        <tr>
+            <td>{$userDb->username}</td>
+            <td>{$userDb->role}</td>
+            <td><a n:href="edit $userDb->user_id">upravit</a></td>
+        </tr>
+    {/foreach}
+    </table>
+    <p><a n:href="Administration:register">Přidat uživatele</a></p>
+{/block}

@@ -1,0 +1,60 @@
+{block contact}
+    <!-- kontakt -->
+    <section id="kontakt" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="ser-title">Kontaktujte nás</h2>
+                    <hr class="botm-line">
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <h3>Kontaktní Informace</h3>
+                    <div class="space"></div>
+                    <p><em class="fa fa-map-marker fa-fw pull-left fa-2x"></em>Spojovací 559/E<br> 289 24 Milovice</p>
+                    <div class="space"></div>
+                    <p><em class="fa fa-envelope-o fa-fw pull-left fa-2x"></em>&#109;&#101;&#100;&#105;&#109;&#111;&#110;&#105;&#64;&#115;&#101;&#122;&#110;&#97;&#109;&#46;&#99;&#122;</p>
+                    <div class="space"></div>
+                    <p><em class="fa fa-phone fa-fw pull-left fa-2x"></em>+420 607 746 211</p>
+                </div>
+                <div class="col-md-8 col-sm-8 marb20">
+                    <div class="contact-info">
+                        <h3 class="cnt-ttl">Napište nám</h3>
+                        <div class="space"></div>
+                            <form n:name=contactForm class="contactForm" action="/medimoni/#kontakt">
+                                <div class="form-group">
+                                    <input n:name=name class="form-control br-radius-zero">
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input n:name=email class="form-control br-radius-zero">
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <input n:name=subject class="form-control br-radius-zero">
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea n:name=content class="form-control br-radius-zero" rows="5"></textarea>
+                                    <div class="validation"></div>
+                                </div>
+                                <!-- google reCaptcha -->
+                                <div class="g-recaptcha" data-sitekey="6Ld2mUUUAAAAAJ0Vf7jRZ2FFbDOAJlE5Y0MBfI6g"></div><br>
+                                <div class="form-action">
+                                    <button n:name=submit class="btn btn-form">Poslat zprávu</button>
+                                </div>
+                                <br>
+                                <div n:if="$form->hasErrors()">
+                                    <p class="red" n:foreach="$form->errors as $error">{$error}</p>
+                                </div>
+
+                            </form>
+                        <br>
+                        <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ kontakt-->
+{/block}

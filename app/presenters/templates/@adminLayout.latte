@@ -1,0 +1,73 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>{ifset title}{include title|stripHtml} | {/ifset}Medimoni</title>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/style.css">
+    <link rel="shortcut icon" href="{$basePath}/images/mimoni.ico" />
+    <meta name="viewport" content="width=device-width">
+    {block head}{/block}
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<!-- admin menu -->
+<section class="admin-menu">
+    <div>
+        <nav class="navbar navbar-default navbar-admin">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="collapse navbar-collapse navbar-left" id="myNavbar">
+                        <ul class="nav navbar-nav justify-content-center">
+                            <li><a n:href="Article:">Úvod</a></li>
+                            {if $user->isInRole('admin')}
+                                <li class=""><a n:href="Administration:">Seznam článků</a></li>
+                                <li class=""><a n:href="Administration:officeHours">Ordinační hodiny</a></li>
+                                <li class=""><a n:href="Administration:edit">Editor</a></li>
+                                <li class=""><a n:href="User:manage">Správa uživatelů</a></li>
+                            {/if}
+                            <li class=""><a n:href=logout>Odhlásit</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+<!--/ admin menu -->
+<div class="clearfix"></div>
+<!-- admin body -->
+<section id="admin-body" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+                <br>
+                {include content}
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--/ admin body -->
+
+{block scripts}
+    <script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
+    <script src="{$basePath}/js/main.js"></script>
+    <script src="{$basePath}/js/jquery.min.js"></script>
+    <script src="{$basePath}/js/jquery.easing.min.js"></script>
+    <script src="{$basePath}/js/bootstrap.min.js"></script>
+    <script src="{$basePath}/js/custom.js"></script>
+    <script src="{$basePath}/js/reload.js"></script>
+{/block}
+</body>
+</html>
