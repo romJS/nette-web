@@ -4,4 +4,4 @@ instructions:
 - delete app folder and then copy all downloaded files to directory and rewrite all files
 - create medimonicz database and import database from db folder
 - run on localhost/folder-name
-- acces to admin localhost/<folder-name>/administrace (user:admin, pass: admin)
+- acces to admin localhost/folder-name/administrace (user:admin, pass: admin)
